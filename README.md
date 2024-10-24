@@ -11,9 +11,6 @@ This repository contains the code for the **Accommodation Booking System**, whic
 - [Running the Application](#running-the-application)
   - [Backend (Spring Boot)](#backend-spring-boot)
   - [Frontend (Angular)](#frontend-angular)
-- [Testing](#testing)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
 
 ## Project Overview
 
@@ -42,5 +39,4 @@ The IGH Booking System helps employees book rooms in the guest house based on th
 - **FontAwesome** for icons
 
 ```bash
-git clone https://github.com/your-username/igh-booking-system.git
-cd igh-booking-system
+git clone https://github.com/sivashankar-selvan/accommodation-system.git
