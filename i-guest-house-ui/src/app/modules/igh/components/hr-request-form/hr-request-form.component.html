@@ -1,0 +1,35 @@
+<div class="booking-form-container">
+    <h1>Request for Rooms</h1>
+    <form [formGroup]="bookingForm" (ngSubmit)="submitRequest()">
+      <div class="table-header">
+        <span>Guest Name</span>
+        <span>Guest ID</span>
+        <span>Room Type</span>
+        <span>Check-in Date</span>
+        <span>Check-out Date</span>
+        <span>Add</span>
+        <span>Delete</span>
+      </div>
+  
+      <div formArrayName="rows" class="booking-rows">
+        <!-- Iterate over rows FormArray -->
+        <div class="booking-row" *ngFor="let row of rows.controls; let i = index" [formGroupName]="i">
+          <input type="text" formControlName="guestName" placeholder="Guest Name" />
+          <input type="text" formControlName="bookedToId" placeholder="Guest ID" />
+          <select formControlName="roomType">
+            <option value="Economy">Economy</option>
+            <option value="Medium">Medium</option>
+            <option value="Luxury">Luxury</option>
+          </select>
+          <input type="date" formControlName="checkInDate" [min]="minDate" />
+          <input type="date" formControlName="checkOutDate" [min]="minDate" />
+  
+          <button class="add-button" *ngIf="i === rows.length - 1 && rows.length < 10" (click)="addRow()" type="button">+</button>
+          <button class="remove-button" (click)="removeRow(i)" type="button">-</button>
+        </div>
+      </div>
+  
+      <button class="submit-button" type="submit">Submit</button>
+    </form>
+  </div>
+  

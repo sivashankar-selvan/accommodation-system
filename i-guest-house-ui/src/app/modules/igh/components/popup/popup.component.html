@@ -1,0 +1,61 @@
+<div class="popup" *ngIf="isPopupVisible">
+    <div class="popup-content">
+      <span class="close" (click)="closePopup()">&times;</span>
+  
+      <!-- Handle potential null room data -->
+      <h2>Room: {{ selectedRoom?.roomNumber ? selectedRoom.roomNumber : 'N/A' }}</h2>
+      <h4 class="room-type-pop">Room Type: {{ selectedRoom?.roomType ? selectedRoom.roomType : 'N/A' }}</h4>
+  
+      <!-- Room availability message -->
+      <h1 *ngIf="!selectedRoom?.isAvailable" class="err-mssg">
+        Room is full. No more employees can be added.
+      </h1>
+  
+      <!-- Show if room has capacity to add employees -->
+      <h1 *ngIf="showEmpCountExceedError && selectedRoom?.roomCapacity > 0" class="err-mssg">
+        Cannot add more employees, room capacity: {{ selectedRoom?.roomCapacity }}
+      </h1>
+  
+      <!-- Input for search -->
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search by Employee Id" [disabled]="!selectedRoom?.isAvailable" />
+  
+      <!-- List of filtered employee requests -->
+      <ul *ngIf="selectedRoom?.isAvailable">
+        <li class="search-list" *ngIf="filteredRequests().length > 0">
+          <span>Booking Id</span>
+          <span>Name</span>
+          <span>Check-In</span>
+          <span>Check-Out</span>
+        </li>
+        <li *ngIf="filteredRequests().length == 0">
+          <span>No Results Found</span>
+        </li>
+      </ul>
+  
+      <ul *ngIf="selectedRoom?.isAvailable">
+        <li class="search-list" (click)="onClickEmployee(request)" *ngFor="let request of filteredRequests()">
+          <span>{{ request.id }}</span>
+          <span>{{ request.name }}</span>
+          <span>{{ request.checkin }}</span>
+          <span>{{ request.checkout }}</span>
+        </li>
+      </ul>
+  
+      <!-- Employees currently added to the room -->
+      <div class="added-emps">
+        <div *ngIf="tempArr.length == 0">Room is vacant</div>
+        <div (click)="onClickAddedEmployeeCross(emp)" class="emp-added-ele" *ngFor="let emp of tempArr">
+          <span>{{ emp.name }} ({{ emp.id }})</span>
+          <span class="remove-emp">x</span>
+        </div>
+      </div>
+  
+      <!-- Update button -->
+      <div class="add-button-div">
+        <button class="custom-button" (click)="onClickAdd()" [disabled]="!selectedRoom?.isAvailable">Update</button>
+      </div>
+  
+      <p>Note: Employees with matching room types will only be shown.</p>
+    </div>
+  </div>
+  

@@ -1,0 +1,69 @@
+.popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+   
+  }
+
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    width: 50%;
+    border-radius: 5px;
+    text-align: center;
+    min-height: 200px;
+  }
+
+
+  /* cross button css */
+.close-button {
+    position: relative;
+    top: -10%;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+    left: 21%;
+    z-index: 100;
+  }
+  
+  .close-button:hover {
+    color: #ff0000;
+  }
+  
+
+  .delete-confirmation-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .delete-confirmation-popup p {
+    margin-bottom: 10px;
+  }
+  
+  .delete-confirmation-popup button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .delete-confirmation-popup button:hover {
+    background-color: #ccc;
+  }

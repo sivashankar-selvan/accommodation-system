@@ -1,0 +1,13 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="/" class="navbar-brand">{{ brandName }}</a>
+    <div class="nav-link">
+      <ul class="navbar-nav">
+        <li *ngFor="let item of navItems" class="nav-item">
+          <a [href]="item.link" class="nav-link">{{ item.label }}</a>
+        </li>
+      </ul>
+      <button type="submit" (click)="logout()"><i class="fas fa-sign-out-alt"></i></button>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,115 @@
+/* card  */
+
+hr{
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    background-image: linear-gradient(to right, #ccc, #fff);
+    width: 100%; 
+  }
+  .room-info {
+    margin-bottom: 10px;
+    
+  }
+  
+  .room-info p {
+    margin-bottom: 10px;
+  }
+  
+  .room-info span {
+    font-weight: bold;
+  }
+  
+  .furniture {
+    margin-bottom: 20px;
+  }
+  
+  .furniture ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .furniture li {
+    margin-bottom: 10px;
+  }
+  
+  .furniture span {
+    font-weight: bold;
+  }
+
+
+ /* addbutton */
+
+
+
+/* CSS */
+.custom-button {
+  display: flex;
+  align-items: center;
+  background-color: #fff; /* Button color */
+  color: rgb(123, 115, 115);
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  border: 1px solid #cbc8c8;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-top: 5px;
+}
+
+
+.custom-button .icon {
+  transform: scale(150%);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 9px;
+  height: 9px;
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.custom-button:hover {
+  background-color: rgb(2, 2, 2)/* Darken on hover */
+}
+
+.custom-button:active {
+  transform: scale(0.98); /* Slightly scale down on click */
+}
+
+/* add button in line with label */
+.add-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding-bottom: 0.2rem; */
+}
+
+.room-floor-tower{
+  padding-top: 9px;
+}
+
+
+
+/* cross button css */
+.close-button {
+  position: relative;
+  top: -3%;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  left: 97%;
+}
+
+.close-button:hover {
+  color: #ff0000;
+}

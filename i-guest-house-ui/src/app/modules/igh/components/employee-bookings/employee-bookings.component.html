@@ -1,0 +1,52 @@
+<div *ngIf="bookingHistory.length > 0; else noBooking">
+  <h1>Hello {{ bookingHistory[0].userName }}, your upcoming accommodations are:</h1>
+
+  <!-- Loop through all the bookings -->
+  <div *ngFor="let booking of bookingHistory">
+    <div *ngIf="booking.roomNumber" class="accommodation-info">
+      <p>
+        <span class="icon-confirmed"></span> Room: {{ booking.roomNumber }} &nbsp;
+        Floor: {{ booking.floorNumber }} &nbsp; Tower: {{ booking.towerNumber }}
+      </p>
+      <p>
+        Check-in date: {{ booking.checkInDate | date:'dd/MM/yyyy' }} &nbsp;
+        Check-out date: {{ booking.checkOutDate | date:'dd/MM/yyyy' }}
+      </p>
+
+      <!-- Display meal booking section if meal booking is allowed for this booking -->
+      <div *ngIf="isMealBookingAllowed(booking)">
+        <p>Meal Booking - {{ mealBookingDate | date:'dd/MM/yyyy' }} </p>
+
+        <div class="meal-cards">
+          <div *ngFor="let meal of mealOptions" class="meal-card">
+            <h3>{{ meal.title }}</h3>
+            <p>{{ meal.options }}</p>
+            <input type="checkbox" [(ngModel)]="meal.selected" [disabled]="isSaved" /> Confirm {{ meal.title }}
+          </div>
+        </div>
+
+        <textarea [(ngModel)]="mealPreferences" placeholder="Enter your meal preferences" [disabled]="isSaved"></textarea>
+
+        <button (click)="saveMealBooking()" [disabled]="isSaved">Save</button>
+      </div>
+
+      <div *ngIf="isSaved && isMealBookingAllowed(booking)">
+        <p>Your meal booking for {{ mealBookingDate | date:'dd/MM/yyyy' }} has been saved. You cannot change your selections until tomorrow.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Display message when there are no bookings -->
+<ng-template #noBooking>
+  <h1>Hello {{ username }}, no rooms are booked yet.</h1>
+</ng-template>
+
+<!-- Popup Confirmation -->
+<div *ngIf="showPopup" class="popup">
+  <div class="popup-content">
+    <p>Are you sure you want to save your meal booking?</p>
+    <button (click)="confirmSave()">Confirm</button>
+    <button (click)="cancelSave()">Cancel</button>
+  </div>
+</div>

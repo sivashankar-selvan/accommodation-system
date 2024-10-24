@@ -1,0 +1,43 @@
+
+<button class="close-button" (click)="confirmPopup.openConfirmPopup()">&#x2715;</button>
+<h2>Room {{ room?.roomNumber }}</h2>
+<div class="room-floor-tower">Tower:{{room?.towerNumber}} Floor:{{room.floorNumber}}</div>
+<hr>
+<div class="room-info">
+  <p>Room Type: <span>{{ room?.roomType }}</span></p>
+  <p>Bed Count: <span>{{ room?.roomCapacity }}</span></p>
+  <p>Employee Count: <span>{{ room?.roomCount }}</span></p>
+  
+  <div class="add-flex">Employees:
+    <button class="custom-button" (click)="searchPopup.openPopup(room)"><span class="icon">+</span>Add</button>
+  </div>
+
+<!-- Display employees or a default message if undefined or empty -->
+<div *ngIf="room.employees && room.employees.length > 0; else noEmployees">
+  <span *ngFor="let employee of room.employees">{{ employee.name }}{{"("+employee.id+")"}}<br></span>
+</div>
+<ng-template #noEmployees>
+  <span>Room is vacant</span>
+</ng-template>
+
+<!-- Display furniture or a default message if undefined -->
+<div class="furniture">
+  <div class="add-flex">
+    Furniture: 
+    <button class="custom-button" (click)="FurniturePopup.openPopup(room)"><span class="icon">+</span> Add</button>
+  </div>
+  <span *ngIf="room.furnitures && room.furnitures.length > 0">{{ room.furnitures }}</span>
+  <span *ngIf="!room.furnitures || room.furnitures.length === 0">No Furniture</span>
+</div>
+
+
+
+<app-popup [room]="room" #searchPopup></app-popup>
+
+
+<!-- furniturechange -->
+<app-popup-furniture [room]="room" #FurniturePopup ></app-popup-furniture>
+
+<app-confirm-popup [room]="room" #confirmPopup></app-confirm-popup>
+
+<!-- <app-add-room-popup [room]="room" #addRoomPopup></app-add-room-popup> -->

@@ -1,0 +1,81 @@
+<div class="popup" *ngIf="isPopupVisible">
+    <button class="close-button" (click)="closePopup()">&#x2715;</button>
+
+    <form [formGroup]="roomForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Room Number:</label>
+            <input formControlName="roomNumber" type="text">
+        </div>
+
+        <div class="form-group">
+            <label>Room Type:</label>
+            <select formControlName="roomType">
+                <option value="Economy">Economy</option>
+                <option value="Medium">Medium</option>
+                <option value="Luxury">Luxury</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Bed Count:</label>
+            <input formControlName="bedCount" type="text">
+        </div>
+
+        <div class="form-group">
+            <label>AC Availability:</label>
+            <input formControlName="acAvailability" type="text">
+        </div>
+
+        <div class="form-group">
+            <label>Employee Count:</label>
+            <input formControlName="employeeCount" type="number">
+        </div>
+
+        <div class="form-group">
+            <label>Tower:</label>
+            <input formControlName="tower" type="number">
+        </div>
+
+        <div class="form-group">
+            <label>Floor:</label>
+            <input formControlName="floor" type="number">
+        </div>
+
+        <div class="form-group">
+            <label>Furniture:</label>
+            <input formControlName="furniture" type="text">
+        </div>
+
+        <div formArrayName="employees" class="form-array">
+            <div *ngFor="let employee of employees.controls; let i = index" [formGroupName]="i" class="form-group">
+                <label>Booked Date:</label>
+                <input formControlName="bookedDate" type="date">
+
+                <label>Name:</label>
+                <input formControlName="name" type="text">
+
+                <label>ID:</label>
+                <input formControlName="id" type="text">
+
+                <label>Checkin:</label>
+                <input formControlName="checkin" type="date">
+
+                <label>Checkout:</label>
+                <input formControlName="checkout" type="date">
+
+                <label>Book ID:</label>
+                <input formControlName="bookId" type="text">
+
+                <label>Room Type:</label>
+                <input formControlName="roomType" type="text">
+
+                <button type="button" (click)="removeEmployee(i)" class="remove-button">Remove</button>
+            </div>
+        </div>
+
+        <button type="button" (click)="addEmployee()">Add Employee</button>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</div>

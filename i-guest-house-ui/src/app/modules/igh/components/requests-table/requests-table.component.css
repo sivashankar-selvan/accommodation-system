@@ -1,0 +1,41 @@
+.requested-rooms-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .table-header, .table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table-header {
+    font-weight: bold;
+    background-color: #f4f4f4;
+  }
+  
+  .table-row {
+    background-color: #fff;
+  }
+  
+  .table-row:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table-row span {
+    padding: 10px 5px;
+  }
+  
+  p {
+    text-align: center;
+    margin-top: 20px;
+  }
+  

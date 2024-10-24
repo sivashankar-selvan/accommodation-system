@@ -1,0 +1,82 @@
+.booking-form-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .table-header, .booking-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .table-header {
+    font-weight: bold;
+    background-color: #eee;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .booking-row {
+    align-items: center;
+  }
+  
+  .booking-row input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .booking-row input[type="date"] {
+    max-width: 150px;
+  }
+  
+  button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  button.add-button {
+    background-color: #28a745;
+    margin-right: 5px;
+  }
+  
+  button.add-button:hover {
+    background-color: #218838;
+  }
+  
+  button.remove-button {
+    background-color: #dc3545;
+  }
+  
+  button.remove-button:hover {
+    background-color: #c82333;
+  }
+  
+  .submit-button {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    background-color: #007bff;
+    font-size: 16px;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  

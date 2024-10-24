@@ -1,0 +1,36 @@
+<div class="requested-rooms-container">
+    <h1>Requested Rooms</h1>
+    
+    <!-- Table Header -->
+    <div class="table-header">
+      <span>Guest ID</span>
+      <span>Guest Name</span>
+      <span>Room Type</span>
+      <span>Check-in Date</span>
+      <span>Check-out Date</span>
+      <span>Status</span>
+    </div>
+  
+    <!-- Table Rows -->
+    <div class="table-body" *ngIf="requestedRooms && requestedRooms.length > 0; else noData">
+      <div class="table-row" *ngFor="let room of requestedRooms">
+        <span>{{ room.bookedToId }}</span>
+        <span>{{ room.guestName }}</span>
+        <span>{{ room.roomType }}</span>
+        <span>{{ room.checkInDate | date:'yyyy-MM-dd' }}</span>
+        <span>{{ room.checkOutDate | date:'yyyy-MM-dd' }}</span>
+        <span>
+            <i *ngIf="room.roomNumber; else pending" class="fas fa-check-circle" style="color: green;"></i>
+            <ng-template #pending>
+                <i class="fas fa-clock" style="color: orange;"></i>
+            </ng-template>
+          </span>
+      </div>
+    </div>
+  
+    <!-- No Data Template -->
+    <ng-template #noData>
+      <p>No room requests found.</p>
+    </ng-template>
+  </div>
+  

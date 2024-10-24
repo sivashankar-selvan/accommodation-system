@@ -1,0 +1,34 @@
+<div class="popup" *ngIf="isPopupVisible">
+    <div class="popup-content">
+        <span class="close" (click)="closePopup()">&times;</span>
+        <h2>Update Furniture</h2>
+        <input type="text" [(ngModel)]="furniture" placeholder="Search Furniture" />
+        <div class="furniture-list">
+            <ul *ngIf="filteredRequests().length>0">
+                <li   *ngFor="let item of filteredRequests()" (click)="onClickFurniture(item)">
+                    {{ item }}
+                </li>
+            </ul>
+            <ul *ngIf="filteredRequests().length==0">
+            <li >
+                <span>No Results Found</span>
+            </li>
+        </ul>
+        </div>
+        <div class="added-emps" >
+            <div *ngIf="furnitureList.length==0">No Furniture</div>
+            <div (click)="onClickAddedFurnitureCross(fur)" class="emp-added-ele" *ngFor="let fur of furnitureList">
+                <span>{{fur}}</span>
+                
+                <span class="remove-emp">x</span>
+
+            </div>
+        </div>
+
+         <div class="add-button-div">
+
+            <button class="custom-button"  (click)="onClickAdd()" >Update</button>
+         </div>
+
+    </div>
+</div>

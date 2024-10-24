@@ -1,0 +1,36 @@
+
+<div class="dropdowns">
+  <div class="label-com">
+    <div class="label">Tower</div>
+    <select [(ngModel)]="selectedTower" (ngModelChange)="onClickSortFloorAndTower()" class="tower-dropdown">
+      <option value="all">All</option>
+      <option value="25">Tower 25</option>
+      <option value="26">Tower 26</option>
+      <option value="27">Tower 27</option>
+    </select>
+  </div>
+  <div class="label-com">
+    <div class="label">Floor</div>
+    <select [(ngModel)]="selectedFloor" (ngModelChange)="onClickSortFloorAndTower()" class="floor-dropdown">
+      <option value="all">All</option>
+      <option value="20">20</option>
+      <option value="19">19</option>
+
+      <!-- Add more floor options here -->
+    </select>
+  </div>
+  <button class="add-room"  (click)="addRoomPopup.openPopup()">
+    Add Room
+  </button>
+
+ </div>
+
+ <div class="grid-container">
+  <div class="room-card" [ngClass]="room.roomType === 'Medium' ? 'type-mid': room.roomType === 'Luxury' ? 'type-lux': 'type-eco'" *ngFor="let room of roomsData">
+    <app-room [room]="room"></app-room>
+  </div>  
+</div>
+
+
+<app-add-room-popup [room]="roomsData" #addRoomPopup></app-add-room-popup>
+
